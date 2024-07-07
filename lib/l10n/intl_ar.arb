@@ -1,0 +1,22 @@
+{
+  "@@local": "ar",
+  "moshafy": "مصحفي",
+  "lang": "اللغة",
+  "darkmode": "الوضع الليلي",
+  "light_mode": "الوضع النهاري",
+  "devicethememode": "وضع الجهاز",
+  "search": "البحث",
+  "moshaf": "المصحف",
+  "hadeeth": "الحديث",
+  "favourit": "المفضلة",
+  "settings": "الاعدادات",
+  "qibla": "القبلة",
+  "ayah": "الاية",
+  "about_me": "عن التطبيق",
+  "rate": "قيم التطبيق",
+  "juz": "الجزء",
+  "page": "الصفحة",
+  "sora": "السورة",
+  "sorahNumber": "رقم السورة",
+  "ayahsNmuber": "عدد الايات"
+}

@@ -1,0 +1,23 @@
+{
+  "@@local": "en",
+  "moshafy": "moshafy",
+  "lang": "language",
+  "darkmode": "Dark Mode",
+  "light_mode": "Light Mode",
+  "devicethememode": "Device Mode",
+  "search": "Search",
+  "moshaf": "Moshaf",
+  "hadeeth": "Hadeeth",
+  "favourit": "Favourites",
+  "settings": "Settings",
+  "qibla": "Qibla",
+  "ayah": "Ayah",
+  "about_me": "About Me",
+  "rate": "Rate Our App",
+  "juz": "Juz",
+  "page": "Page",
+  "sora": "Sorah",
+  "sorahNumber": "Sorah Number",
+  "ayahsNmuber": "Numbers of Ayahs"
+
+}
