@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moshafy/modules/home_page_screen/presentation/screens/qibla_screen.dart';
+import 'package:moshafy/modules/home_page_screen/presentation/screens/more_settings_screen.dart';
+import 'package:moshafy/modules/home_page_screen/presentation/screens/tasbeeh_screen.dart';
 
 import '../../../../core/functions/navigate.dart';
 import '../../../../core/routes/app_routes.dart';
@@ -16,7 +18,7 @@ import '../cubit/home_page_cubit.dart';
 import '../cubit/home_page_states.dart';
 
 class HomePageScreen extends StatelessWidget {
-  const HomePageScreen({super.key,this.argument});
+  const HomePageScreen({super.key, this.argument});
 
   final dynamic argument;
 
@@ -28,7 +30,7 @@ class HomePageScreen extends StatelessWidget {
       S.of(context).moshaf,
       S.of(context).hadeeth,
       S.of(context).favourit,
-      S.of(context).qibla,
+      S.of(context).tasbeeh,
       S.of(context).settings,
     ];
     return BlocProvider(
@@ -67,7 +69,7 @@ class HomePageScreen extends StatelessWidget {
                               onPressed: () {
                                 navigate(
                                   context: context,
-                                  route: Routes.seearchScreen,
+                                  route: Routes.test,
                                 );
                               },
                               height: 40.h,
@@ -103,9 +105,9 @@ class HomePageScreen extends StatelessWidget {
                           FavouriteScreen(),
                           BlocProvider(
                             create: (context) => HomePageCubit(),
-                            child: const QiblaScreen(),
+                            child: const TasbeehScreen(),
                           ),
-                          const SettingsScreen(),
+                          const MoreSettingsScreen(),
                         ],
                       ),
                     ),
@@ -118,22 +120,25 @@ class HomePageScreen extends StatelessWidget {
                 homePageCubit.changePageViewNaveBar(val, isClicked: true);
               },
               unselectedItemColor: Colors.white,
-              selectedFontSize: 20.sp,
+              selectedFontSize: th.textTheme.titleMedium!.fontSize!,
               currentIndex: homePageCubit.pageNavNumber,
               backgroundColor: AppColors.kPrimaryColor,
-              showUnselectedLabels: false,
+              unselectedFontSize: th.textTheme.titleMedium!.fontSize!,
+              showUnselectedLabels: true,
               type: BottomNavigationBarType.fixed,
-              showSelectedLabels: false,
+              showSelectedLabels: true,
               selectedIconTheme: const IconThemeData(color: Colors.amber),
               useLegacyColorScheme: true,
               items: [
                 BottomNavigationBarItem(
-                    icon: Image.asset(Assets.imagesQuranNavbar,
-                        width: 30.w,
-                        height: 30.h,
-                        color: homePageCubit.pageNavNumber == 0
-                            ? Colors.amber
-                            : Colors.white),
+                    icon: Image.asset(
+                      Assets.imagesQuranNavbar,
+                      width: 30.w,
+                      height: 30.h,
+                      color: homePageCubit.pageNavNumber == 0
+                          ? Colors.amber
+                          : Colors.white,
+                    ),
                     label: titles[0]),
                 BottomNavigationBarItem(
                     icon: Image.asset(Assets.imagesIslam,
@@ -152,16 +157,17 @@ class HomePageScreen extends StatelessWidget {
                             : Colors.white),
                     label: titles[2]),
                 BottomNavigationBarItem(
-                    icon: Image.asset(Assets.imagesQibla,
-                        width: 30.w,
-                        height: 30.h,
-                        color: homePageCubit.pageNavNumber == 3
-                            ? Colors.amber
-                            : Colors.white),
-                    label: titles[3]),
+                  icon: Image.asset(Assets.imagesTasbehIco,
+                      width: 40.w,
+                      height: 40.h,
+                      color: homePageCubit.pageNavNumber == 3
+                          ? Colors.amber
+                          : Colors.white),
+                  label: titles[3],
+                ),
                 BottomNavigationBarItem(
                   icon: Image.asset(
-                    Assets.imagesSettings,
+                    Assets.imagesMore,
                     width: 30.w,
                     height: 30.h,
                     color: homePageCubit.pageNavNumber == 4

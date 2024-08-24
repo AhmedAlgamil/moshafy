@@ -17,14 +17,13 @@ import 'home_page_states.dart';
 
 enum SortOrder { ascending, descending }
 
-class HomePageCubit extends Cubit<AppStates> with ChangeNotifier {
-  HomePageCubit() : super(AppInitialState());
+class SettingsCubit extends Cubit<AppStates> {
+  SettingsCubit() : super(AppInitialState());
 
-  // HomePageCubit.h(this.context) : super(AppInitialState()) {}
 
   double angle = 0.0;
 
-  static HomePageCubit get(BuildContext context) => BlocProvider.of(context);
+  static SettingsCubit get(BuildContext context) => BlocProvider.of(context);
   List<Map<String, dynamic>>? allDBSurah = [];
   List<Map<String, dynamic>>? allDBAyah = [];
   List<Map<String, dynamic>>? allDBFavourit = [];
@@ -488,7 +487,6 @@ class HomePageCubit extends Cubit<AppStates> with ChangeNotifier {
       AppSharedPrefrence.setString("themeMode", "light");
     }
     print(AppSharedPrefrence.get("themeMode"));
-    notifyListeners();
     emit(ChangeSwitchState());
   }
 

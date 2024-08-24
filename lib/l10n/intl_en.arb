@@ -1,7 +1,7 @@
 {
   "@@local": "en",
   "moshafy": "moshafy",
-  "lang": "language",
+  "lang": "English",
   "darkmode": "Dark Mode",
   "light_mode": "Light Mode",
   "devicethememode": "Device Mode",
@@ -18,6 +18,8 @@
   "page": "Page",
   "sora": "Sorah",
   "sorahNumber": "Sorah Number",
-  "ayahsNmuber": "Numbers of Ayahs"
-
+  "ayahsNmuber": "Numbers of Ayahs",
+  "tasbeeh": "Tasbeeh",
+  "azkar": "Azkar",
+  "device_theme": "Device Theme"
 }

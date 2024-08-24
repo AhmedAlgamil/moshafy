@@ -16,7 +16,6 @@ class QiblaScreen extends StatefulWidget {
 }
 
 class _QiblaScreenState extends State<QiblaScreen> {
-
   late HomePageCubit homePageCubit;
 
   @override
@@ -33,6 +32,7 @@ class _QiblaScreenState extends State<QiblaScreen> {
     super.dispose();
     homePageCubit.setUpCompassMovment(isCompassClosed: false);
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -41,41 +41,49 @@ class _QiblaScreenState extends State<QiblaScreen> {
       },
       child: BlocConsumer<HomePageCubit, AppStates>(
         builder: (context, state) {
-          return Column(
-            children: [
-              SizedBox(
-                height: 40.h,
-              ),
-              Stack(
-                alignment: Alignment.center,
+          return Scaffold(
+            appBar: AppBar(),
+            body: SizedBox(
+              width: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image(
-                    image: const AssetImage(
-                      Assets.imagesQiblaLogo,
-                    ),
-                    height: 300.h,
-                    width: 300.w,
+                  SizedBox(
+                    height: 40.h,
                   ),
-                  Transform.rotate(
-                    angle: homePageCubit.angle,
-                    child: Image(
-                      image: const AssetImage(
-                        Assets.imagesMoveLogo,
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image(
+                        image: const AssetImage(
+                          Assets.imagesQiblaLogo,
+                        ),
+                        height: 300.h,
+                        width: 300.w,
                       ),
-                      height: 200.h,
-                      width: 200.w,
-                    ),
-                  ),
-                  Image(
-                    image: const AssetImage(
-                      Assets.imagesQibla,
-                    ),
-                    height: 70.h,
-                    width: 70.w,
+                      Transform.rotate(
+                        angle: homePageCubit.angle,
+                        child: Image(
+                          image: const AssetImage(
+                            Assets.imagesMoveLogo,
+                          ),
+                          height: 200.h,
+                          width: 200.w,
+                        ),
+                      ),
+                      Image(
+                        image: const AssetImage(
+                          Assets.imagesQibla,
+                        ),
+                        height: 70.h,
+                        width: 70.w,
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           );
         },
         listener: (context, state) {},

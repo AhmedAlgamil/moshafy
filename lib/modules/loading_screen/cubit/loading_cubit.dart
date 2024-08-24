@@ -1,3 +1,4 @@
+import 'package:file_manager/file_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moshafy/modules/home_page_screen/presentation/cubit/home_page_states.dart';
@@ -14,6 +15,7 @@ class LoadingCubit extends Cubit<LoadingState> {
   static LoadingCubit get(BuildContext context) => BlocProvider.of(context);
 
   late LocalRepository localRepository;
+  int surahProgress=0,ayahProgress=0,hadeethProgress=0,azkarProgress=0,tasbeehProgress=0;
 
   late Database dataBaseQuran;
 
@@ -91,6 +93,7 @@ class LoadingCubit extends Cubit<LoadingState> {
               "tasbeeh_text TEXT,"
               "total_count TEXT,"
               "counter TEXT,"
+              "notes TEXT,"
               "is_favourited TEXT)",
         )
             .then(
@@ -132,6 +135,7 @@ class LoadingCubit extends Cubit<LoadingState> {
       await dataBaseQuran.transaction((txn) {
         return txn.rawInsert(Constants.surahDataArray[i]);
       });
+      surahProgress++;
     }
     emit(SurahDataLoadedSuccessfully());
   }
@@ -146,34 +150,37 @@ class LoadingCubit extends Cubit<LoadingState> {
         AppSharedPrefrence.setString(
             Constants.DATAINSERTED, Constants.DATAINSERTED);
       }
+      hadeethProgress++;
     }
     emit(HadeethDataLoadedSuccessfully());
   }
   Future<void> insertAzkarToDB() async {
     dataBaseQuran = await openDatabase("quranDataBase.db");
-    for (int i = 0; i < Constants.hadeethDataArray.length; i++) {
+    for (int i = 0; i < Constants.azkarkDataArray.length; i++) {
       await dataBaseQuran.transaction((txn) {
-        return txn.rawInsert(Constants.hadeethDataArray[i]);
+        return txn.rawInsert(Constants.azkarkDataArray[i]);
       });
-      if (i == Constants.hadeethDataArray.length - 1) {
+      if (i == Constants.azkarkDataArray.length - 1) {
         AppSharedPrefrence.setString(
             Constants.DATAINSERTED, Constants.DATAINSERTED);
       }
+      azkarProgress++;
     }
-    emit(HadeethDataLoadedSuccessfully());
+    emit(AzkarDataLoadedSuccessfully());
   }
   Future<void> insertTasbeehToDB() async {
     dataBaseQuran = await openDatabase("quranDataBase.db");
-    for (int i = 0; i < Constants.hadeethDataArray.length; i++) {
+    for (int i = 0; i < Constants.tasbeehDataArray.length; i++) {
       await dataBaseQuran.transaction((txn) {
-        return txn.rawInsert(Constants.hadeethDataArray[i]);
+        return txn.rawInsert(Constants.tasbeehDataArray[i]);
       });
-      if (i == Constants.hadeethDataArray.length - 1) {
+      if (i == Constants.tasbeehDataArray.length - 1) {
         AppSharedPrefrence.setString(
             Constants.DATAINSERTED, Constants.DATAINSERTED);
       }
+      tasbeehProgress++;
     }
-    emit(HadeethDataLoadedSuccessfully());
+    emit(TasbeehDataLoadedSuccessfully());
   }
 
   Future<void> insertAyahToDB() async {
@@ -182,7 +189,11 @@ class LoadingCubit extends Cubit<LoadingState> {
       await dataBaseQuran.transaction((txn) {
         return txn.rawInsert(Constants.ayahDataArray[i]);
       });
+      ayahProgress++;
     }
     emit(AyahDataLoadedSuccessfully());
   }
+
+  Future<void> requestFileManger()
+  async => await FileManager.requestFilesAccessPermission();
 }

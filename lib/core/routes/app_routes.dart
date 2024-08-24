@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moshafy/modules/home_page_screen/presentation/cubit/home_page_cubit.dart';
+import 'package:moshafy/modules/home_page_screen/presentation/screens/qibla_screen.dart';
+import 'package:moshafy/modules/home_page_screen/presentation/screens/test_screen.dart';
 import '../../modules/home_page_screen/presentation/screens/content_screen.dart';
 import '../../modules/home_page_screen/presentation/screens/home_page.dart';
+import '../../modules/home_page_screen/presentation/screens/more_settings_screen.dart';
+import '../../modules/home_page_screen/presentation/screens/single_sebha_screen.dart';
+import '../../modules/home_page_screen/presentation/screens/tasbeeh_screen.dart';
 import '../../modules/loading_screen/screens/loading_screen.dart';
 import '../../modules/home_page_screen/presentation/screens/search_screen.dart';
 import '../../modules/home_page_screen/presentation/screens/surah_page_screen.dart';
@@ -14,7 +19,15 @@ class Routes {
 
   static const String homePageScreen = '/homePageScreen';
   static const String seearchScreen = '/seearchScreen';
+  static const String qiblaScreen = '/qiblaScreen';
+  static const String tasbeehScreen = '/tasbeehScreen';
+
+  static const String singleSebhaScreen = '/singleSebhaScreen';
+  static const String moreSettingsScreen = '/moreSettingsScreen';
+  static const String test = '/test';
 }
+
+HomePageCubit homePageCubit = HomePageCubit();
 
 Widget appRoutes(String route, dynamic arg) {
   switch (route) {
@@ -22,6 +35,16 @@ Widget appRoutes(String route, dynamic arg) {
       return const LoadingScreen();
     case Routes.contentRoute:
       return ContentScreen();
+      case Routes.qiblaScreen:
+      return const QiblaScreen();
+      case Routes.tasbeehScreen:
+      return const TasbeehScreen();
+      case Routes.test:
+      return const TestScreen();
+      case Routes.moreSettingsScreen:
+      return const MoreSettingsScreen();
+      case Routes.singleSebhaScreen:
+      return SingleSebhaScreen(singleSebha: arg,);
     case Routes.surahPageView:
       return BlocProvider(
         create: (context) => HomePageCubit(),

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SettingCard extends StatelessWidget {
-  final String leadingText, trailingText;
+class AboutCardButton extends StatelessWidget {
+  final String leadingText;
+  final Widget? widget;
 
-  const SettingCard({Key? key,this.leadingText="",this.trailingText=""}) : super(key: key);
+  const AboutCardButton({Key? key,this.leadingText="",this.widget}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +26,10 @@ class SettingCard extends StatelessWidget {
           selected: true,
           onTap: () {},
           title: Text(
-            leadingText!,
+            leadingText,
             style: th.textTheme.titleLarge,
           ),
-          trailing: Text(
-            trailingText!,
-            style: th.textTheme.titleLarge,
-          ),
+          trailing: widget,
         ),
       ),
     );

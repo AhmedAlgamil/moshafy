@@ -22,15 +22,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about_me": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
+        "about_me": MessageLookupByLibrary.simpleMessage("من نحن"),
         "ayah": MessageLookupByLibrary.simpleMessage("الاية"),
         "ayahsNmuber": MessageLookupByLibrary.simpleMessage("عدد الايات"),
+        "azkar": MessageLookupByLibrary.simpleMessage("الاذكار"),
         "darkmode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
+        "device_theme": MessageLookupByLibrary.simpleMessage("وضع الجهاز"),
         "devicethememode": MessageLookupByLibrary.simpleMessage("وضع الجهاز"),
         "favourit": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "hadeeth": MessageLookupByLibrary.simpleMessage("الحديث"),
         "juz": MessageLookupByLibrary.simpleMessage("الجزء"),
-        "lang": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "lang": MessageLookupByLibrary.simpleMessage("اللغة العربية"),
         "light_mode": MessageLookupByLibrary.simpleMessage("الوضع النهاري"),
         "moshaf": MessageLookupByLibrary.simpleMessage("المصحف"),
         "moshafy": MessageLookupByLibrary.simpleMessage("مصحفي"),
@@ -40,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "search": MessageLookupByLibrary.simpleMessage("البحث"),
         "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
         "sora": MessageLookupByLibrary.simpleMessage("السورة"),
-        "sorahNumber": MessageLookupByLibrary.simpleMessage("رقم السورة")
+        "sorahNumber": MessageLookupByLibrary.simpleMessage("رقم السورة"),
+        "tasbeeh": MessageLookupByLibrary.simpleMessage("التسبيح")
       };
 }

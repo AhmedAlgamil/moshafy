@@ -45,6 +45,11 @@ dependencies:
   sensors_plus: ^4.0.2
   flutter_map_math: ^0.1.7
   arabic_numbers: ^1.0.0
+  file_manager: ^1.0.0
+  permission_handler: ^10.4.3
+  path_provider: ^2.0.15
+  local_auth: ^2.1.6
+  hotreloader: ^4.2.0
 #  google_fonts: ^6.1.0
 dev_dependencies:
   flutter_test:
@@ -75,11 +80,14 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/images/move_logo.png
-    - assets/images/page001.png
-    - assets/images/switch_dark.png
-    - assets/images/switch_device.png
-    - assets/images/switch_white.png
+    - assets/images/about.png
+    - assets/images/evening_azkar.png
+    - assets/images/icaon_save.png
+    - assets/images/icon_saved.png
+    - assets/images/langauges.png
+    - assets/images/more.png
+    - assets/images/morning_azkar.png
+    - assets/images/themes.png
 
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

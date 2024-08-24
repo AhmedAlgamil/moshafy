@@ -60,10 +60,10 @@ class S {
     );
   }
 
-  /// `language`
+  /// `English`
   String get lang {
     return Intl.message(
-      'language',
+      'English',
       name: 'lang',
       desc: '',
       args: [],
@@ -235,6 +235,36 @@ class S {
     return Intl.message(
       'Numbers of Ayahs',
       name: 'ayahsNmuber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tasbeeh`
+  String get tasbeeh {
+    return Intl.message(
+      'Tasbeeh',
+      name: 'tasbeeh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Azkar`
+  String get azkar {
+    return Intl.message(
+      'Azkar',
+      name: 'azkar',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Device Theme`
+  String get device_theme {
+    return Intl.message(
+      'Device Theme',
+      name: 'device_theme',
       desc: '',
       args: [],
     );

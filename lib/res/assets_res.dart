@@ -8,9 +8,12 @@ class AssetsRes {
 
   static const String PLUGIN_NAME = 'moshafy';
   static const String PLUGIN_VERSION = '1.0.0+1';
-  static const String MOVE_LOGO = 'assets/images/move_logo.png';
-  static const String PAGE001 = 'assets/images/page001.png';
-  static const String SWITCH_DARK = 'assets/images/switch_dark.png';
-  static const String SWITCH_DEVICE = 'assets/images/switch_device.png';
-  static const String SWITCH_WHITE = 'assets/images/switch_white.png';
+  static const String ABOUT = 'assets/images/about.png';
+  static const String EVENING_AZKAR = 'assets/images/evening_azkar.png';
+  static const String ICAON_SAVE = 'assets/images/icaon_save.png';
+  static const String ICON_SAVED = 'assets/images/icon_saved.png';
+  static const String LANGAUGES = 'assets/images/langauges.png';
+  static const String MORE = 'assets/images/more.png';
+  static const String MORNING_AZKAR = 'assets/images/morning_azkar.png';
+  static const String THEMES = 'assets/images/themes.png';
 }

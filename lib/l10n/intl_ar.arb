@@ -1,7 +1,7 @@
 {
   "@@local": "ar",
   "moshafy": "مصحفي",
-  "lang": "اللغة",
+  "lang": "اللغة العربية",
   "darkmode": "الوضع الليلي",
   "light_mode": "الوضع النهاري",
   "devicethememode": "وضع الجهاز",
@@ -12,11 +12,14 @@
   "settings": "الاعدادات",
   "qibla": "القبلة",
   "ayah": "الاية",
-  "about_me": "عن التطبيق",
+  "about_me": "من نحن",
   "rate": "قيم التطبيق",
   "juz": "الجزء",
   "page": "الصفحة",
   "sora": "السورة",
   "sorahNumber": "رقم السورة",
-  "ayahsNmuber": "عدد الايات"
+  "ayahsNmuber": "عدد الايات",
+  "tasbeeh": "التسبيح",
+  "azkar": "الاذكار",
+  "device_theme": "وضع الجهاز"
 }

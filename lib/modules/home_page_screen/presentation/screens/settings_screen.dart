@@ -6,7 +6,7 @@ import '../../../../core/util/app_colors.dart';
 import '../controls/switch_setting_card.dart';
 import '../cubit/home_page_cubit.dart';
 import '../cubit/home_page_states.dart';
-import '../controls/setting_card.dart';
+import '../controls/about_card_button.dart';
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -27,15 +27,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           HomePageCubit homePageCubit = HomePageCubit.get(context);
           return Column(
             children: [
-              const SettingCard(
-                trailingText: "العربية",
+              const AboutCardButton(
                 leadingText: "اللغة",
               ),
               SwitchSettingCard(
                 switchValue: homePageCubit.switchValue,
                 onTapItemCard: () {
                   homePageCubit.changeDarkOrLightMode();
-                  HomePageCubit.get(context).emit(ChangeSwitchState());
                 },
               ),
               Row(

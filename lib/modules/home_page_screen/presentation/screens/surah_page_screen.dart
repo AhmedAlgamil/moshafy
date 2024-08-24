@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moshafy/generated/assets.dart';
 import 'package:moshafy/modules/home_page_screen/presentation/controls/single_page.dart';
 import 'package:moshafy/modules/home_page_screen/presentation/cubit/home_page_states.dart';
@@ -33,7 +34,7 @@ class _SurahPageScreenState extends State<SurahPageScreen> {
     ThemeData th = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(),
+      // appBar: AppBar(),
       body: Column(
         children: [
           Expanded(
@@ -63,7 +64,14 @@ class _SurahPageScreenState extends State<SurahPageScreen> {
               //   );
               // }).toList(),
               children: [
-                // Image(image: AssetImage(Assets.imagesPage001),color: th.primaryColorDark),
+                Image(image: AssetImage(Assets.imagesPage1),height: 20.h,),
+                const Image(image: AssetImage(Assets.imagesPage2),),
+                const Image(image: AssetImage(Assets.imagesPage3),),
+                const Image(image: AssetImage(Assets.imagesPage4),),
+                const Image(image: AssetImage(Assets.imagesPage5),),
+                const Image(image: AssetImage(Assets.imagesPage6),),
+                const Image(image: AssetImage(Assets.imagesPage7),),
+                const Image(image: AssetImage(Assets.imagesPage2),),
                 if(false)
                 SinglePage(
                   homePageCubit: homePageCubit,
