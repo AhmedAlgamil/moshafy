@@ -17,6 +17,9 @@ class QiblaPageStateOpend extends AppStates {}
 class SettingsPageStateOpend extends AppStates {}
 
 class LoadAllAyahsState extends AppStates {}
+class AllTasbeehLoadedState extends AppStates {}
+class AllAzkarLoadedState extends AppStates {}
+class FilesLoadedSuccessfull extends AppStates {}
 
 class PageViewSizeChanged extends AppStates {}
 

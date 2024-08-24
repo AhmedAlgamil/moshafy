@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:moshafy/core/constatnts/constants.dart';
 import 'package:moshafy/core/functions/navigate.dart';
 import 'package:moshafy/modules/loading_screen/cubit/loading_cubit.dart';
 import 'package:moshafy/modules/loading_screen/cubit/loading_states.dart';
@@ -23,6 +24,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     // TODO: implement initState
     super.initState();
     loadingCubit = LoadingCubit(LocalRepository());
+    loadingCubit.requestFileManger();
     loadingCubit.setUpDataBase();
   }
 
@@ -43,9 +45,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
           } else if (state is AyahDataLoadedSuccessfully) {
             loadingCubit.insertHadeethToDB();
           } else if (state is HadeethDataLoadedSuccessfully) {
+            loadingCubit.insertAzkarToDB();
+          }else if (state is AzkarDataLoadedSuccessfully) {
+            loadingCubit.insertTasbeehToDB();
+          }else if (state is TasbeehDataLoadedSuccessfully) {
             navigate(context: context, route: Routes.homePageScreen);
           }
-          print(state);
         },
         builder: (context, state) {
           return Scaffold(
@@ -67,12 +72,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
                       child: const LinearProgressIndicator(),
                     ),
                   ),
-                  if(state is SurahDataLoadedSuccessfully)
+                  if(loadingCubit.surahProgress == Constants.surahDataArray.length)
                   const Text("تم تحميل السور"),
-                  if(state is AyahDataLoadedSuccessfully)
+                  if(loadingCubit.ayahProgress == Constants.ayahDataArray.length)
                   const Text("تم تحميل الآيات"),
-                  if(state is HadeethDataLoadedSuccessfully)
+                  if(loadingCubit.hadeethProgress == Constants.hadeethDataArray.length)
                   const Text("تم تحميل الأحاديث"),
+                  if(loadingCubit.azkarProgress == Constants.azkarkDataArray.length)
+                  const Text("تم تحميل الاذكار"),
+                  if(loadingCubit.tasbeehProgress == Constants.tasbeehDataArray.length)
+                  const Text("تم تحميل التسابيح"),
                 ],
               ),
             ),

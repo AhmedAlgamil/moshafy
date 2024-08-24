@@ -1,7 +1,12 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:file_manager/controller/file_manager_controller.dart';
+import 'package:file_manager/file_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -9,6 +14,8 @@ import '../../../../core/local/shared_prefrence.dart';
 import '../../data/model/ayah.dart';
 import '../../data/repository/local_repository.dart';
 import 'home_page_states.dart';
+
+enum SortOrder { ascending, descending }
 
 class HomePageCubit extends Cubit<AppStates> {
   HomePageCubit() : super(AppInitialState());
@@ -22,8 +29,12 @@ class HomePageCubit extends Cubit<AppStates> {
   List<Map<String, dynamic>>? allDBAyah = [];
   List<Map<String, dynamic>>? allDBFavourit = [];
   List<Map<String, dynamic>>? allDBHadeeth = [];
+  List<Map<String, dynamic>>? allDBAzkar = [];
+  List<Map<String, dynamic>>? allDBTasbeeh = [];
 
   List<Map<String, dynamic>>? allAyahPage = [];
+
+  late FileManagerController controller = FileManagerController();
 
   int switchNumber = 0;
   int? pageViewSize = 0;
@@ -38,6 +49,11 @@ class HomePageCubit extends Cubit<AppStates> {
   // late final AppLifecycleListener listener;
   final ScrollController scrollController = ScrollController();
   final PageController pageController = PageController(initialPage: 0);
+
+  Directory directory = Directory('/storage/emulated/0/quran');
+  List<FileSystemEntity> files = [];
+  bool loading = true;
+  SortOrder sortOrder = SortOrder.ascending;
 
   // final List<String> states = <String>[];
   // late AppLifecycleState? myState;
@@ -174,6 +190,42 @@ class HomePageCubit extends Cubit<AppStates> {
     local = Locale(localString);
   }
 
+  Future<void> getFiles()
+  async {
+    Directory? externalStorageDirectories = await getExternalStorageDirectory();
+    int comIndex = externalStorageDirectories!.absolute.path.indexOf("data");
+    String sdCardPath = "${externalStorageDirectories.absolute.path.substring(0,comIndex)}test";
+    var hiddenFolder = Directory(sdCardPath);
+    var files = await hiddenFolder.list().toList();
+    // Iterate over the list of files
+    for (var file in files) {
+      final File filess = File(file.path);
+      String text = await filess.path;
+      print(text);
+    }
+  }
+
+  void getFilesOnly() async {
+    Directory? externalStorageDirectories = await getExternalStorageDirectory();
+    int comIndex = externalStorageDirectories!.absolute.path.indexOf("data");
+    String sdCardPath = "${externalStorageDirectories.absolute.path.substring(0,comIndex)}media/com.whatsapp/WhatsApp/Media/WhatsApp Images";
+    var hiddenFolder = Directory(sdCardPath);
+    // Get the application documents directory
+    // Directory appDocumentsDirectory = await getApplicationDocumentsDirectory();
+
+    // Get a list of all files and directories in the directory
+    List<FileSystemEntity> entityList = hiddenFolder.listSync();
+
+    // Filter out the directories
+    List<FileSystemEntity> filesOnly = entityList.where((entity) => entity is File).toList();
+
+    // Print the file names
+    for (var file in filesOnly) {
+      print(file.path);
+    }
+  }
+
+
   // Future<void> startDatabase() async {
   //   await openDatabase(
   //     "quranDataBase.db",
@@ -285,6 +337,50 @@ class HomePageCubit extends Cubit<AppStates> {
       },
     );
     emit(AllFavouritesLoadedState());
+  }
+
+  void getAllTasbeeh() async {
+    allDBTasbeeh = [];
+    dataBaseQuran = await openDatabase("quranDataBase.db");
+    allDBTasbeeh = await dataBaseQuran!.transaction(
+      (txn) {
+        return txn.query(
+          "tasbeeh_table",
+          columns: [
+            "id",
+            "tasbeeh_text",
+            "total_count",
+            "counter",
+            "notes",
+            "is_favourited",
+          ],
+        );
+      },
+    );
+    print(allDBTasbeeh!.length);
+    emit(AllTasbeehLoadedState());
+  }
+
+  void getAllAzkar() async {
+    allDBAzkar = [];
+    dataBaseQuran = await openDatabase("quranDataBase.db");
+    allDBAzkar = await dataBaseQuran!.transaction(
+      (txn) {
+        return txn.query(
+          "azkar_table",
+          columns: [
+            "id",
+            "azkar_title",
+            "azkar_text",
+            "total_count",
+            "counter",
+            "notes",
+            "is_favourited",
+          ],
+        );
+      },
+    );
+    emit(AllAzkarLoadedState());
   }
 
   Future<void> handleSearch(String searchItem) async {
@@ -459,6 +555,29 @@ class HomePageCubit extends Cubit<AppStates> {
   //   );
   //   return lastPage-firstPage;
   // }
+  Future<void> getFiles2() async {
+    loading = true;
+    PermissionStatus status = await Permission.manageExternalStorage.request();
 
+    if (status.isGranted == false) {}
+    if (await directory.exists() == false) {
+      return;
+    }
+    files = directory.listSync();
+    loading = false;
+    emit(FilesLoadedSuccessfull());
+  }
+
+  void sortFileSystemItems() {
+    if (sortOrder == SortOrder.ascending) {
+      files.sort((a, b) {
+        return a.path.compareTo(b.path);
+      });
+    } else {
+      files.sort((a, b) {
+        return b.path.compareTo(a.path);
+      });
+    }
+  }
 
 }

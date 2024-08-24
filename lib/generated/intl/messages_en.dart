@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_me": MessageLookupByLibrary.simpleMessage("About Me"),
         "ayah": MessageLookupByLibrary.simpleMessage("Ayah"),
         "ayahsNmuber": MessageLookupByLibrary.simpleMessage("Numbers of Ayahs"),
+        "azkar": MessageLookupByLibrary.simpleMessage("Azkar"),
         "darkmode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "devicethememode": MessageLookupByLibrary.simpleMessage("Device Mode"),
         "favourit": MessageLookupByLibrary.simpleMessage("Favourites"),
@@ -40,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "sora": MessageLookupByLibrary.simpleMessage("Sorah"),
-        "sorahNumber": MessageLookupByLibrary.simpleMessage("Sorah Number")
+        "sorahNumber": MessageLookupByLibrary.simpleMessage("Sorah Number"),
+        "tasbeeh": MessageLookupByLibrary.simpleMessage("Tasbeeh")
       };
 }

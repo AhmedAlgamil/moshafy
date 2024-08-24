@@ -8,9 +8,4 @@ class AssetsRes {
 
   static const String PLUGIN_NAME = 'moshafy';
   static const String PLUGIN_VERSION = '1.0.0+1';
-  static const String MOVE_LOGO = 'assets/images/move_logo.png';
-  static const String PAGE001 = 'assets/images/page001.png';
-  static const String SWITCH_DARK = 'assets/images/switch_dark.png';
-  static const String SWITCH_DEVICE = 'assets/images/switch_device.png';
-  static const String SWITCH_WHITE = 'assets/images/switch_white.png';
 }

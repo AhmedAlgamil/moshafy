@@ -94,8 +94,8 @@ class SurahItemCard extends StatelessWidget {
                           ),
                           Image(
                             image: surah["revelationType"] == "Meccan"
-                                ? AssetImage(Assets.imagesKaba)
-                                : AssetImage(Assets.imagesMosqe),
+                                ? const AssetImage(Assets.imagesKaba)
+                                : const AssetImage(Assets.imagesMosqe),
                             width: 30.w,
                             height: 30.h,
                           ),

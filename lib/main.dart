@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -13,7 +15,8 @@ import 'modules/home_page_screen/presentation/screens/home_page.dart';
 import 'modules/loading_screen/screens/loading_screen.dart';
 
 Future<void> main() async {
-  await WidgetsFlutterBinding.ensureInitialized();
+  DartPluginRegistrant.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await AppSharedPrefrence.init();
 
   runApp(MultiBlocProvider(

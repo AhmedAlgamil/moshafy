@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moshafy/modules/home_page_screen/presentation/screens/qibla_screen.dart';
+import 'package:moshafy/modules/home_page_screen/presentation/screens/more_settings_screen.dart';
+import 'package:moshafy/modules/home_page_screen/presentation/screens/tasbeeh_screen.dart';
 
 import '../../../../core/functions/navigate.dart';
 import '../../../../core/routes/app_routes.dart';
@@ -28,7 +30,7 @@ class HomePageScreen extends StatelessWidget {
       S.of(context).moshaf,
       S.of(context).hadeeth,
       S.of(context).favourit,
-      S.of(context).qibla,
+      S.of(context).tasbeeh,
       S.of(context).settings,
     ];
     return BlocProvider(
@@ -67,7 +69,7 @@ class HomePageScreen extends StatelessWidget {
                               onPressed: () {
                                 navigate(
                                   context: context,
-                                  route: Routes.seearchScreen,
+                                  route: Routes.test,
                                 );
                               },
                               height: 40.h,
@@ -101,11 +103,9 @@ class HomePageScreen extends StatelessWidget {
                           ContentScreen(),
                           HadeethScreen(),
                           FavouriteScreen(),
-                          BlocProvider(
-                            create: (context) => HomePageCubit(),
-                            child: const QiblaScreen(),
-                          ),
-                          const SettingsScreen(),
+                          BlocProvider(create: (context) => HomePageCubit(),
+                          child: const TasbeehScreen()),
+                          const MoreSettingsScreen(),
                         ],
                       ),
                     ),
@@ -152,9 +152,9 @@ class HomePageScreen extends StatelessWidget {
                             : Colors.white),
                     label: titles[2]),
                 BottomNavigationBarItem(
-                    icon: Image.asset(Assets.imagesQibla,
-                        width: 30.w,
-                        height: 30.h,
+                    icon: Image.asset(Assets.imagesTasbehIco,
+                        width: 40.w,
+                        height: 40.h,
                         color: homePageCubit.pageNavNumber == 3
                             ? Colors.amber
                             : Colors.white),

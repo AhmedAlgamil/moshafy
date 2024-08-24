@@ -2,10 +2,22 @@
 class Assets {
   Assets._();
 
+  static const String assetsImagesAzkarIco = 'assets/images/azkar_ico.png';
   static const String assetsImagesMoveLogo = 'assets/images/move_logo.png';
+  static const String assetsImagesPage1 = 'assets/images/page1.png';
+  static const String assetsImagesPage2 = 'assets/images/page2.png';
+  static const String assetsImagesPage3 = 'assets/images/page3.png';
+  static const String assetsImagesPage4 = 'assets/images/page4.png';
+  static const String assetsImagesPage5 = 'assets/images/page5.png';
+  static const String assetsImagesPage6 = 'assets/images/page6.png';
+  static const String assetsImagesPage7 = 'assets/images/page7.png';
+  static const String assetsImagesPage8 = 'assets/images/page8.png';
+  static const String assetsImagesPage9 = 'assets/images/page9.png';
+  static const String assetsImagesQiblaIco = 'assets/images/qibla_ico.png';
   static const String assetsImagesSwitchDark = 'assets/images/switch_dark.png';
   static const String assetsImagesSwitchDevice = 'assets/images/switch_device.png';
   static const String assetsImagesSwitchWhite = 'assets/images/switch_white.png';
+  static const String imagesAzkarIco = 'assets/images/azkar_ico.png';
   static const String imagesBackGround = 'assets/images/back_ground.jpg';
   static const String imagesDarkBack = 'assets/images/dark_back.jpg';
   static const String imagesIslam = 'assets/images/islam.png';
@@ -13,7 +25,17 @@ class Assets {
   static const String imagesLightBack = 'assets/images/light_back.png';
   static const String imagesMosqe = 'assets/images/mosqe.png';
   static const String imagesMoveLogo = 'assets/images/move_logo.png';
+  static const String imagesPage1 = 'assets/images/page1.png';
+  static const String imagesPage2 = 'assets/images/page2.png';
+  static const String imagesPage3 = 'assets/images/page3.png';
+  static const String imagesPage4 = 'assets/images/page4.png';
+  static const String imagesPage5 = 'assets/images/page5.png';
+  static const String imagesPage6 = 'assets/images/page6.png';
+  static const String imagesPage7 = 'assets/images/page7.png';
+  static const String imagesPage8 = 'assets/images/page8.png';
+  static const String imagesPage9 = 'assets/images/page9.png';
   static const String imagesQibla = 'assets/images/qibla.png';
+  static const String imagesQiblaIco = 'assets/images/qibla_ico.png';
   static const String imagesQiblaLogo = 'assets/images/qibla_logo.png';
   static const String imagesQuestion = 'assets/images/question.png';
   static const String imagesQuranIco = 'assets/images/quran_ico.png';

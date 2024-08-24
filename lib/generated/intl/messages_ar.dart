@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "about_me": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
         "ayah": MessageLookupByLibrary.simpleMessage("الاية"),
         "ayahsNmuber": MessageLookupByLibrary.simpleMessage("عدد الايات"),
+        "azkar": MessageLookupByLibrary.simpleMessage("الاذكار"),
         "darkmode": MessageLookupByLibrary.simpleMessage("الوضع الليلي"),
         "devicethememode": MessageLookupByLibrary.simpleMessage("وضع الجهاز"),
         "favourit": MessageLookupByLibrary.simpleMessage("المفضلة"),
@@ -40,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "search": MessageLookupByLibrary.simpleMessage("البحث"),
         "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
         "sora": MessageLookupByLibrary.simpleMessage("السورة"),
-        "sorahNumber": MessageLookupByLibrary.simpleMessage("رقم السورة")
+        "sorahNumber": MessageLookupByLibrary.simpleMessage("رقم السورة"),
+        "tasbeeh": MessageLookupByLibrary.simpleMessage("التسبيح")
       };
 }
